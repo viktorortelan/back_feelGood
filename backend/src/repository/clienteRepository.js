@@ -42,7 +42,7 @@ export async function buscar(email) {
 
 export async function totalCliente() {
     let comando = `
-        SELECT COUNT(*) AS total_clientes FROM tb_cliente;
+        select count(*) as total_clientes from tb_cliente;
     `;
     let registro = await database.query(comando);
     let fim = registro[0];

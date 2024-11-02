@@ -16,11 +16,11 @@ const addClient = async (data, email ) => {
 
 export async function updateCliente(nome, email, telefone, id) {
   let comando = `
-      UPDATE tb_cliente
-      SET nm_cliente = ?,
+      update tb_cliente
+      set nm_cliente = ?,
           ds_email = ?,
           ds_telefone = ?
-      WHERE id_cliente = ?
+      where id_cliente = ?
   `;
   
   try {

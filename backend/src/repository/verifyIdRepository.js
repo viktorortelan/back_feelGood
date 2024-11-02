@@ -2,7 +2,7 @@ import database from "./conn.js";
 
 const verifyId = async (id) => {
 
-    const cmd = `SELECT * FROM tb_infos_imoveis WHERE id_cardImovel = ?`;
+    const cmd = `select * from tb_infos_imoveis where id_cardImovel = ?`;
 
     const x = await database.query(cmd, [id]);
 

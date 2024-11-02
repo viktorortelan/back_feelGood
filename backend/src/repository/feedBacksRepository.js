@@ -2,8 +2,8 @@ import database from "./conn.js";
 
 export async function addFeed(id, comentario) {
     let comando = `
-        INSERT INTO tb_feed_backs (id_cliente, ds_comentario)
-            VALUES(?, ?);
+        insert into tb_feed_backs (id_cliente, ds_comentario)
+            values(?, ?);
     `;
     let registro = await database.query(comando, [id, comentario]);
     let fim = registro[0];
@@ -13,13 +13,13 @@ export async function addFeed(id, comentario) {
 
 export async function aparecerFeed() {
     let comando = `
-    SELECT 
-    c.nm_cliente AS nome_cliente,
-    f.ds_comentario AS comentario,
-    c.nm_foto AS nome_foto FROM 
-    tb_feed_backs f INNER JOIN 
-    tb_cliente c ON f.id_cliente = c.id_cliente
-    LIMIT 0, 500;
+    select
+    c.nm_cliente as nome_cliente,
+    f.ds_comentario as comentario,
+    c.nm_foto as nome_foto FROM 
+    tb_feed_backs f inner join 
+    tb_cliente c on f.id_cliente = c.id_cliente
+    limit 0, 500;
     `;   
 
     let registro = await database.query(comando);
@@ -29,12 +29,12 @@ export async function aparecerFeed() {
 
 export async function apareceIndividual(id) {
     let comando = `
-        SELECT 
-        c.nm_cliente AS nome_cliente,
-        f.ds_comentario AS comentario,
-        c.nm_foto AS nome_foto FROM 
-        tb_feed_backs f INNER JOIN tb_cliente c ON f.id_cliente = c.id_cliente
-        WHERE c.id_cliente = ?;
+        select
+        c.nm_cliente as nome_cliente,
+        f.ds_comentario as comentario,
+        c.nm_foto as nome_foto FROM 
+        tb_feed_backs f inner join tb_cliente c on f.id_cliente = c.id_cliente
+        where c.id_cliente = ?;
     `;
 
     let registro = await database.query(comando, [id]);

@@ -2,8 +2,8 @@ import database from "./conn.js";
 
 export async function addCorretor(corretorOBJ) {
     let comando = `
-        INSERT INTO tb_corretores (nm_adm, ds_email, ds_senha, ds_telefone) 
-                VALUES(?,?,?,?)
+        insert into tb_corretores (nm_adm, ds_email, ds_senha, ds_telefone) 
+                values(?,?,?,?)
     `;
 
     let registro = await database.query(comando, [corretorOBJ.nome, corretorOBJ.email, corretorOBJ.senha, corretorOBJ.telefone]);
@@ -23,7 +23,7 @@ export async function buscarCorretor() {
 
 export async function totalCorretor() {
     let comando = `
-        SELECT COUNT(*) AS total_corretores FROM tb_corretores;
+        select count(*) as total_corretores from tb_corretores;
     `;
     let registro= await database.query(comando);
     let fim = registro[0];
@@ -32,12 +32,12 @@ export async function totalCorretor() {
 
 export async function updateCorretor(nome, email, senha, telefone, id) {
     let comando = `
-        UPDATE tb_corretores
-        SET nm_adm = ?,
+        update tb_corretores
+        set nm_adm = ?,
             ds_email = ?,
             ds_senha = ?,
             ds_telefone = ?
-        WHERE id_corretor = ?
+        where id_corretor = ?
     `;
     
     try {
@@ -53,7 +53,7 @@ export async function updateCorretor(nome, email, senha, telefone, id) {
 
 export async function removerCorretor(id) {
     let comando = `
-        delete tb_corretores WHERE id_corretor = ?
+        delete tb_corretores where id_corretor = ?
     `;
     let registro = await database.query(comando, [id]);
     let fim = registro[0];
