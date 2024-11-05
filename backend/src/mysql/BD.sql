@@ -18,7 +18,7 @@ ds_telefone varchar(20) unique,
 nm_foto varchar(200)
 );
 
-INSERT INTO tb_corretores (nm_adm, ds_email, ds_senha) VALUES
+insert into tb_corretores (nm_adm, ds_email, ds_senha) values
 ("Kauan", "kauan29918@gmail.com", "1234");
 
 
