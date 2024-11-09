@@ -127,7 +127,7 @@ endpoint.get('/findImgCliente/:id', async (req, resp) => {
 
 endpoint.get('/img/:name', (req, resp) => {
   const { name } = req.params;
-  resp.send({ url: `http://4.172.207.208:5005/imgs/${name}` });
+  resp.send({ url: `http://localhost:5005/imgs/${name}`});
 });
 
 
